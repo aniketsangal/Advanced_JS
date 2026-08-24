@@ -41,3 +41,28 @@ Promise.all([promise1, promise2])
     .catch((error) => {
         console.log(error.message);
     });
+
+    Promise.race([promise1, promise2])
+    .then((responses) => {
+        console.log(responses);
+    })
+    .catch((error) => {
+        console.log(error.message);
+    });
+
+    Promise.allSettled([promise1, promise2])
+    .then((responses) => {
+        console.log(responses);
+    })
+    .catch((error) => {
+        console.log(error.message);
+    });
+
+
+Promise.any([promise1, promise2])
+    .then((responses) => {
+        console.log(responses);
+    })
+    .catch((error) => {
+        console.log(error.message);
+    });
