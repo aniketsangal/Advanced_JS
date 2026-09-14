@@ -1,0 +1,32 @@
+import http from 'http';
+
+const server = http.createServer((req, res) => {
+    console.log("hello");
+    const order = {
+        orderId: 10987,
+        des: "Delhi",
+        source: "Ghaziabad",
+        username: "ABC",
+    }
+    res.writeHead(200, {
+        "Content-Type": "application/json",
+        "custom-header": "Hello ECE"
+    });
+
+    res.statusCode = 200;
+    res.setHeader("content-type", "application/json");
+
+    res.end(JSON.stringify(order));
+});
+
+server.listen(3000, "127.0.0.1", () => {
+    console.log("Server is running on http://127.0.0.1:3000/");
+});
+
+//status code 200 means everything is ok
+//status code 201 means something is created
+//status code 401 means unauthorized
+//status code 403 means forbidden
+//status code 404 means not found
+//status code 500 means internal server error
+//status code 503 means service unavailable
